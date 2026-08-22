@@ -71,6 +71,11 @@ func TestALC(t *testing.T) {
 			err:  "ALC data set field count is not exactly dividable by 4",
 		},
 		{
+			name: "invalid nmea: no fields",
+			raw:  "$FBALC*4A",
+			err:  "nmea: FBALC invalid number of fragments: index out of range",
+		},
+		{
 			name: "invalid nmea: NumFragments",
 			raw:  "$FBALC,0x,01,03,01,FEB,01,02,03*40",
 			err:  "nmea: FBALC invalid number of fragments: 0x",
